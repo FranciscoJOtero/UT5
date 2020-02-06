@@ -1,12 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react"; 
+import { render } from "react-dom"; 
+import { Router, Link } from "@reach/router";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Aplicacion = () => (
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    <div>
+        <h1> Manejo de rutas en React </h1>
+        <nav>
+            <Link to="/"> Inicio </Link>
+            <br/>
+            <Link to = "AcercaDe"> Acerca De... </Link>
+        </nav>
+
+        <Router>
+            <Inicio path ="/"/>
+            <AcercaDe path="/AcercaDe"/>
+        </Router>
+
+    </div>
+
+)
+
+const Inicio = () => (
+
+    <div>
+        <h2> Estas en Inicio </h2>
+    </div>
+
+)
+
+const AcercaDe = () => (
+
+    <div>
+        <h2> Estas en Acerca De </h2>
+    </div>
+
+)
+
+render(<Aplicacion/>, document.getElementById('root'));
